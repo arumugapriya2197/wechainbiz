@@ -1,0 +1,46 @@
+{
+    "repaymentdata":[
+           
+           {
+               "dueDate":"21-03-2020",               
+               "amounttobepaid":"1200",
+               "d5thday":"Yet to Notified",
+               "d2thday":"Yet to Notified",
+               "paymentstatus":"paid"             
+             
+           },
+           {
+            "dueDate":"21-03-2020",               
+            "amounttobepaid":"1200",
+            "d5thday":"Yet to Notified",
+            "d2thday":"Yet to Notified",
+            "paymentstatus":"Not Yet Paid"              
+          
+        },
+        {
+            "dueDate":"21-03-2020",               
+            "amounttobepaid":"1200",
+            "d5thday":"Yet to Notified",
+            "d2thday":"Yet to Notified",
+            "paymentstatus":"Overdue"              
+          
+        },
+        {
+            "dueDate":"21-03-2020",               
+            "amounttobepaid":"1200",
+            "d5thday":"Yet to Notified",
+            "d2thday":"Yet to Notified",
+            "paymentstatus":"paid"              
+          
+        },
+        {
+            "dueDate":"21-03-2020",               
+            "amounttobepaid":"1200",
+            "d5thday":"Yet to Notified",
+            "d2thday":"Yet to Notified",
+            "paymentstatus":"paid"              
+          
+        }
+           
+]
+}

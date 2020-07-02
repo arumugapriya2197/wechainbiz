@@ -1,0 +1,42 @@
+.sidebar-navigation {
+    // background-color: lighten($app-primary, 10%);
+    background-color: #166ba4;
+    padding: 1.5rem 1rem;
+    font-size: 0.90rem;
+    font-weight: 400;
+    .navigation-item {
+        display: flex;
+        margin-bottom: .5rem;
+        align-items: center;
+        color: #ffffff;
+        padding: 1rem;
+        border-radius: 3px;
+        text-decoration: none;
+        transition: all .5s ease;
+        .icon {
+            height: 36px;
+            width: 36px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 3px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.4);;
+        }
+        &.active {
+            // background-color: #ffffff;
+            color: $app-primary;
+            
+        }
+        .row{
+            align-items: center;
+           
+        }
+       
+    }
+   
+   
+}

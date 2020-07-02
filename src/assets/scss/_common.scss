@@ -1,0 +1,542 @@
+body {
+    background-color: #fafafa;
+    font-family: 'Poppins', sans-serif;
+}
+.app-title {
+    color: $black;
+    font-size:1.75rem;
+    font-family: "poppins",sans-serif
+    span{
+        color: $app-primary;
+        font-size:1.75rem;
+    }
+}
+.app-content{
+    font-family: "poppins",sans-serif;
+}
+
+.logo-icon{
+    
+        animation: rotation 8s infinite linear;
+        height:25px;
+      
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
+}
+
+.logo-text{
+        vertical-align: middle;
+        margin-left: 5px;
+        height: 20px;
+}
+
+p{
+    margin-top: 1.0rem;
+    font-size: 0.85rem;
+    line-height: 22px;
+}
+
+.about-us-img{
+    display: flex;
+    justify-content: center;
+}
+
+.margin-left{
+    margin-left: 15px;
+}
+
+.first-para{
+    margin-top: 2.0rem;
+    font-size: 0.85rem;
+}
+
+.app-list {
+    list-style: none;
+    li {
+        position: relative;
+        margin-bottom: 1rem;
+        &:before {
+            content: "\f111";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: small;
+            color: $app-secondary;
+            position: absolute;
+            left: -1.5rem;
+        }
+    }
+}
+.btn{
+    padding:0.3rem 0.50rem
+}
+
+.button-size{
+font-size: 0.75rem;
+a{
+    color:white
+}
+a:hover{
+    color:white;
+    text-decoration: none;
+}
+}
+
+.app-table {
+    font-size: 0.80rem;
+    border-radius: 5px;
+    background-color: #ffffff;
+    overflow: hidden;
+    thead {
+        tr {
+            th {
+                background-color: $app-table-header-bg;
+                font-weight: normal;
+                // font-size: small;
+                color: #ffffff;
+                padding: 1rem 0.50rem;
+            }
+        }
+    }
+    tbody {
+        tr {
+            &:nth-child(odd) {
+                background-color: #ededed;
+            }
+            td {
+                border: none;
+                padding: 1rem 0.75rem;
+            }
+        }
+    }
+    tfoot {
+
+    }
+    .no-data {
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.anchor {
+    cursor: pointer;
+    user-select: none;
+    color: $app-primary;
+    display: inline-block;
+}
+
+.page-header {
+    background-position: center;
+    background-size: cover;
+    min-height: 300px;
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp .5s ease;
+}
+
+.enquiry{
+    color:#5A5A5A;
+    font-size: 0.85rem;
+    font-family: "poppins",sans-serif;
+   .app-title{
+       font-size: 1rem;
+       font-weight: 600;
+       color:#5A5A5A;
+       font-family: "poppins",sans-serif
+       
+   }
+   .bg-light{
+    background-color: #f8f6f7 !important;
+}
+}
+
+input{
+    font-size: 0.85rem;
+}
+
+
+
+@keyframes fadeInUp{
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+.singin-modal {
+    .banner {
+        min-height: 520px;
+        background-image: url("/assets/images/bg/modal-signin.jpg");
+        background-size: cover;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 0.3rem;
+        h2 {
+            margin-bottom: 3rem;
+            font-size: 1.50rem;
+        }
+    }
+}
+
+.lender-button{
+    display:flex;
+    justify-content: space-between;
+}
+
+.app-title-forms{
+    color:#5A5A5A;
+    font-size: 0.85rem;
+    font-family: "poppins",sans-serif;
+    span{
+        color: #0863c7;       
+        font-weight: 550;
+        font-size: 1rem;
+    }
+    .app-title{
+        font-size: 1rem;
+        font-weight: 550;
+        color:#5A5A5A;
+        font-family: "poppins",sans-serif;
+    }
+}
+
+
+.loandetails{
+    color:#5A5A5A;
+    font-size: 0.85rem;
+    font-family: "poppins",sans-serif;
+    span{
+        color: #0863c7;       
+        font-weight: 550;
+        font-size: 1rem;
+    }
+    .app-title{
+        font-size: 1rem;
+        font-weight: 550;
+        color:#5A5A5A;
+        font-family: "poppins",sans-serif;
+    }
+    .bg-light{
+        background-color: #f8f6f7 !important;
+    }
+    .upload-file{
+        padding: 0.3rem 2rem;
+    margin: 0.5rem;
+    background-color: $app-primary;
+    border-color: $app-primary;
+
+    }
+    .download-btn{
+        padding: 0.3rem 2rem;
+        margin: 0.5rem;
+        font-size: 0.80rem;
+        background-color: $app-primary;
+        border-color: $app-primary;
+    }
+    .hold-btn{
+        background-color: $app-primary;
+        border-color: $app-primary;
+    }
+    .add-finance-reports{
+        background-color:$app-reports-color;
+        border: 1rem solid $app-reports-color;
+        label{
+            font-weight: 500;
+        }
+    }
+    .add-existing-loans{
+        background-color:$app-reports-color;
+        border: 1rem solid $app-reports-color;
+        
+        label{
+            font-weight: 500;
+        }
+    }
+    .add-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .add-button-size{
+        padding: 0.3rem 1rem;
+    font-size: 0.75rem;
+    }
+    .bold-text{
+        font-weight: 700;
+    }
+    .terms{
+        justify-content: space-between;
+    }
+    .terms-btn{
+        justify-content: flex-end;
+    }
+   
+
+}
+.add-button-funder{
+    display: flex;
+    
+    align-items: center;
+    
+}
+.new-loan-modal{
+    font-size: 1.25rem;
+    .modal-title{
+        font-size: 0.95rem;
+    }
+    
+        label{
+            font-size: 0.80rem !important;
+           }   
+}
+.new-loan-text-area{
+    textarea.form-control {
+        height: calc(1.5em + 7rem + 2px)!important;
+        border-radius: 5px;
+      }
+}
+
+.loan-app-title{
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: "poppins",sans-serif;
+    color:#5A5A5A;
+    font-size:1.10rem;
+    span{
+        color: $app-primary;
+        font-size:1rem;
+    }
+    
+}
+.directors-app-title{
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: "poppins",sans-serif;
+    color:#5A5A5A;
+    font-size:1rem;
+    span{
+        color: $app-primary;
+        font-size:1rem;
+    }
+    
+    
+}
+.directors-information{
+    font-size: 0.80rem;
+    font-family: "poppins",sans-serif;
+    .sidebar-navigation {
+        background-color: #166ba4;
+        padding: 1.5rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 400;}
+        .active .add-border {
+            background-color: #ffffff;
+            border: 5px solid #ffffff;
+            /* border-right: 90px solid #ffffff; */
+            border-radius: 3px;
+        }
+}
+.repayment-details{
+    .sidebar-navigation {
+        background-color: #166ba4;
+        padding: 1.5rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 400;}
+        .active .add-border {
+            background-color: #ffffff;
+            border: 5px solid #ffffff;
+            /* border-right: 90px solid #ffffff; */
+            border-radius: 3px;
+        }
+}
+
+.set-black{
+    color:black !important;
+}
+.col-header{
+    margin-right: 2px;
+}
+.font-label{
+    font-size: 0.80rem ;
+}
+.edit{
+    border-radius: 5px;   
+    border-color: #166ba4;
+    background-color: #166ba4;
+   
+}
+.input-group-append{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    .fa-search:before{
+        font-size: 13px;
+    }
+}
+.view{
+    border-radius: 5px;   
+    border-color: #28e766;    
+    background-color: $success;
+    margin:1px;
+    .fas{
+        font-weight: 700;
+        font-size: 10px;
+        color: white
+    }     
+}
+.active .add-border{
+    background-color: #ffffff;
+    border: 5px solid #ffffff;
+    border-right: 90px solid #ffffff;
+    border-radius: 3px;
+}
+.loan-app-btn{
+    margin:5px;
+    justify-content: space-between;
+}
+.svg-icon{
+    color: #ffffff;
+    height:12px
+  }
+
+
+
+.datum{
+   
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: white;
+    z-index: 1;
+    text-align: center;
+    top:100px;
+    .row{
+         justify-content: space-evenly;
+        
+    }
+}
+.dasboard-div{
+    
+    background-color: white;
+    color:black;
+    height:85px;
+    width:200px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    img{
+        display: flex;
+        align-self: flex-end;
+        height: 25px;
+       
+    }
+    h3{
+        font-family: "poppins",sans-serif;
+        font-weight: 500;
+        margin: 0em;
+    }
+    span{
+        font-size:12px;
+    
+    }
+   
+
+}
+.feedback{
+    color:#5A5A5A;
+    font-size: 0.85rem;
+    font-family: "poppins",sans-serif;
+    span{
+        color: #0863c7;       
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    .app-title{
+        font-size: 1.05rem;
+        color:#5A5A5A;
+        font-weight: 600;
+        font-family: "poppins",sans-serif
+    }
+    .bg-light{
+        background-color: #f8f6f7 !important;
+    }
+    img{
+        height:20px
+    }
+}
+.barcode{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.borrower-login-form{
+    font-size: 0.80rem;
+}
+.phone-number{
+    .input-group-text{
+        padding: 0.3rem 1rem;
+    }
+}
+.input-group-sm .form-control{
+    font-size: 0.75rem;
+    margin-top: 5px;
+    margin-left: 10px;
+   
+}
+.input-search{
+    .fa{
+        font-size: 13px;
+        height:10px;
+    }
+}
+.place-center{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.checkbox-btn{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .add-check{
+            align-items: center;
+        }
+    
+}
+
+.dotted-line{
+    border-style:dotted ;
+    border-color:white;
+}
+
+.documents-col{
+    display: flex;
+    flex-direction: column;
+}

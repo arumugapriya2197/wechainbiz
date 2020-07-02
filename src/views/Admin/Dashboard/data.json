@@ -1,0 +1,62 @@
+{
+    "loandata":[
+           
+           {
+               "loan-id":"L001",
+               "application-date":"22-01-2020",
+               "product":"Invoice Financing",
+               "lender":"Validus",
+               "Loan-amount":"10,000",
+               "Loan-tenor":"30 days",
+               "pending-status":"3 days",
+               "status":"submitted"
+             
+           },
+           {
+            "loan-id":"L001",
+            "application-date":"22-01-2020",
+            "product":"Invoice Financing",
+            "lender":"Validus",
+            "Loan-amount":"10,000",
+            "Loan-tenor":"30 days",
+            "pending-status":"3 days",
+            "status":"under review"
+        }, {
+            "loan-id":"L001",
+            "application-date":"22-01-2020",
+            "product":"Invoice Financing",
+            "lender":"Validus",
+            "Loan-amount":"10,000",
+            "Loan-tenor":"30 days",
+            "pending-status":"3 days",
+            "status":"approved"
+        }, {
+            "loan-id":"L001",
+            "application-date":"22-01-2020",
+            "product":"Invoice Financing",
+            "lender":"Validus",
+            "Loan-amount":"10,000",
+            "Loan-tenor":"30 days",
+            "pending-status":"3 days",
+            "status":"on Hold"
+        }, {
+            "loan-id":"L001",
+            "application-date":"22-01-2020",
+            "product":"Invoice Financing",
+            "lender":"validus",
+            "Loan-amount":"10,000",
+            "Loan-tenor":"30 days",
+            "pending-status":"3 days",
+            "status":"Rejected"
+        }, {
+            "loan-id":"L001",
+            "application-date":"22-01-2020",
+            "product":"Invoice Financing",
+            "lender":"Validus",
+            "Loan-amount":"10,000",
+            "Loan-tenor":"30 days",
+            "pending-status":"2 days",
+            "status":"submitted"
+        }
+]
+}

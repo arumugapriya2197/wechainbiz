@@ -1,0 +1,55 @@
+{
+    "reverteddata":[
+           
+           {
+               "timeanddatestamp":"9.00AM & 20-02-2020",
+               "responsibleperson":"Borrower",
+               
+               "downloadedfiles":"2"
+             
+           },
+           {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"Admin",
+           
+            "downloadedfiles":"4"
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"Lender",
+            
+            "downloadedfiles":"2"
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"User",
+           
+            "downloadedfiles":"2"
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"Borrower",
+            
+            "downloadedfiles":"2"
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"Lender",
+            
+            "downloadedfiles":"4"
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"User",
+            
+            "downloadedfiles":"2"
+          
+        }
+          
+]
+}

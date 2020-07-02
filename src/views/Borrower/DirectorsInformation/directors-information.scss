@@ -1,0 +1,45 @@
+@import '../../../assets/scss/colors';
+
+.director-list-wrapper {
+    .director-list-item {
+        margin-bottom: 1rem;
+        .head {
+            display: flex;
+            border: solid 1px #dddcdc;
+            border-radius: 5px;
+            align-items: center;
+            & > div {
+                flex: 1;
+                padding: 1rem;
+            }
+            .icon {
+                flex: none;
+                width: 50px;
+                text-align: center;
+                cursor: pointer;
+                user-select: none;
+            }
+            .name {
+                font-weight: 500;
+            }
+            .role {
+                font-weight: 500;
+                
+            }
+            .phone {
+                font-weight: 500;
+    
+            }
+            .action {
+                padding: 0 1rem;
+                text-align: right;
+            }
+        }
+        .content {
+            padding: 2rem 3rem;
+            background-color: #ededed;
+            margin-top: 0.25rem;
+            border-radius: 5px;
+        }
+    }
+}

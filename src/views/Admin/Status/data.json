@@ -1,0 +1,57 @@
+{
+    "statusdata":[
+           
+           {
+               "timeanddatestamp":"9.00AM & 20-02-2020",
+               "responsibleperson":"Borrower",
+               "activity":"Loan Application is Submitted",
+               "applicationstatus":"Submitted"
+             
+           },
+           {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"Admin",
+            "activity":"More informational documents needed",
+            "applicationstatus":"Reverted"
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"Lender",
+            "activity":"Resubmitted for review",
+            "applicationstatus":"Resubmitted"
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"User",
+            "activity":"Approved and lender offer letter sent",
+            "applicationstatus":"Approved"
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"Borrower",
+            "activity":"Submitted Acceptance letter",
+            "applicationstatus":"Approved"
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"Lender",
+            "activity":"Sent loan details and documents.",
+            "applicationstatus":"Approved"
+           
+          
+        },
+        {
+            "timeanddatestamp":"9.00AM & 20-02-2020",
+            "responsibleperson":"User",
+            "activity":"Accept the loan",
+            "applicationstatus":"Active"
+            
+          
+        }
+          
+]
+}

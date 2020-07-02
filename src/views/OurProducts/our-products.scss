@@ -1,0 +1,56 @@
+@import '../../assets/scss/colors';
+
+.slide-controls {
+    .prev,.next {
+        display: inline-block;
+        margin-left: .5rem;
+        height: 26px;
+        width: 26px;
+        line-height: 26px;
+        text-align: center;
+        background-color: #efefef;
+        border-radius: 50%;
+        transition: all 250ms ease;
+        cursor: pointer;
+        user-select: none;
+        i {
+            vertical-align: middle;
+        }
+        &:hover {
+            background-color: $app-secondary;
+            color: #ffffff;
+        }
+    }
+}
+
+.our-products {
+    .product-item {
+        padding: .5rem;
+        background-color: #ffffff;
+        margin-bottom: 30px;
+        .content {
+            position: relative;
+            .overlay {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(0deg, rgba(0,0,0,.8) 60%, rgba(0,0,0,0) 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: calc(0% + 40px);
+                transition: all .5s ease;
+                .title {
+                    color: #ffffff;
+                }
+            }
+        }
+        &:hover {
+            .overlay {
+                background: linear-gradient(0deg, fade-out($app-secondary,.5) 0%, fade-out($app-secondary,.5) 100%);
+                height: calc(100% + 0px);
+            }
+        }
+    }
+}
