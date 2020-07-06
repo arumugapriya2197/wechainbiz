@@ -22,6 +22,7 @@ import { LoanApplicationService } from "../../../APIService";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router";
 import Rejectionreason from "./Rejectionreason";
+import TableComponent from "../TableComponent";
 
 const AssignLender = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -160,6 +161,7 @@ const AssignLender = () => {
     <React.Fragment>
       <PageHeader />
       <section className="pt-4 animate-fadeInUp loandetails mb-3">
+        <TableComponent />
         <Container fluid>
           <div className="d-flex align-items-center  mb-3">
             <Button className="mr-2 button-size" onClick={goBack}>

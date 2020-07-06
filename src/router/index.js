@@ -37,14 +37,30 @@ const AssignLender = lazy(() =>
 const LoanApplicationStatus = lazy(() =>
   import(/* webpackChunkName: "new-loan-application" */ "../views/Admin/Status")
 );
+
 const RepaymentDetails = lazy(() =>
   import(
-    /* webpackChunkName: "new-loan-application" */ "../views/Admin/RepaymentDetails"
+    /* webpackChunkName: "new-loan-application" */ "../views/Admin/RepaymentDetails/Repayment"
   )
 );
 const RevertedApplication = lazy(() =>
   import(
     /* webpackChunkName: "new-loan-application" */ "../views/Admin/RevertedApplication"
+  )
+);
+const AdminFeedback = lazy(() =>
+  import(
+    /* webpackChunkName: "new-loan-application" */ "../views/Admin/Feedback"
+  )
+);
+const AdminUserLender = lazy(() =>
+  import(
+    /* webpackChunkName: "new-loan-application" */ "../views/Admin/UserManagement/Lender"
+  )
+);
+const AdminUserBorrower = lazy(() =>
+  import(
+    /* webpackChunkName: "new-loan-application" */ "../views/Admin/UserManagement/Borrower"
   )
 );
 const FunderRegistration = lazy(() =>
@@ -101,6 +117,24 @@ const appRouter = [
     icon: "",
   },
 
+  {
+    path: "/admin/feedback",
+    component: AdminFeedback,
+    name: "Home",
+    icon: "",
+  },
+  {
+    path: "/admin/user-lender",
+    component: AdminUserLender,
+    name: "Home",
+    icon: "",
+  },
+  {
+    path: "/admin/user-borrower",
+    component: AdminUserBorrower,
+    name: "Home",
+    icon: "",
+  },
   {
     path: "/newloandetails",
     component: Loandetails,

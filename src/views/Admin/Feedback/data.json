@@ -1,0 +1,46 @@
+{
+    "feedbackdata":[
+           
+           {
+               "s.no":"1",
+               "loanId":"L001",
+               "borrower":"Steven Enterprise",
+               "Lender":"Validus",
+               "Rating":"4.5",
+               "Remarks":"Lorem Ipsum is simply dummy text."
+           },
+           {
+            "s.no":"2",
+            "loanId":"L002",
+            "borrower":"GHF Limited",
+            "Lender":"Fund Tier",
+            "Rating":"4.5",
+            "Remarks":"Lorem Ipsum is simply dummy text."
+        },
+        {
+            "s.no":"3",
+            "loanId":"L003",
+            "borrower":"George",
+            "Lender":"Validus",
+            "Rating":"4.5",
+            "Remarks":"Lorem Ipsum is simply dummy text."
+        },
+        {
+            "s.no":"4",
+            "loanId":"L004",
+            "borrower":"Jonathan",
+            "Lender":"Validus",
+            "Rating":"4.5",
+            "Remarks":"Lorem Ipsum is simply dummy text."
+        },
+        {
+            "s.no":"5",
+            "loanId":"L005",
+            "borrower":"Jonathan",
+            "Lender":"Validus",
+            "Rating":"4.5",
+            "Remarks":"Lorem Ipsum is simply dummy text."
+        }
+           
+]
+}

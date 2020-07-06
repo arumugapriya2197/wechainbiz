@@ -1,7 +1,13 @@
 {
     "repaymentdata":[
            
-           {
+           {    "loanId":"001",
+                "applicationDate":"22-01-2020",
+                "lender":"Validus",
+                "product":"Invoice Financing",
+                "companyName":"YHG Company",
+                "loanAmount":"10,000",
+                "remainingAmount":"10,000",
                "dueDate":"21-03-2020",               
                "amounttobepaid":"1200",
                "d5thday":"Yet to Notified",
@@ -10,6 +16,13 @@
              
            },
            {
+            "loanId":"002",
+            "applicationDate":"22-01-2020",
+            "lender":"Validus",
+            "product":"Account Receivables",
+            "companyName":"YHG Company",
+            "loanAmount":"15,000",
+            "remainingAmount":"10,000",
             "dueDate":"21-03-2020",               
             "amounttobepaid":"1200",
             "d5thday":"Yet to Notified",
@@ -17,7 +30,13 @@
             "paymentstatus":"Not Yet Paid"              
           
         },
-        {
+        {   "loanId":"003",
+            "applicationDate":"22-01-2020",
+            "lender":"Validus",
+            "product":"Financing",
+            "companyName":"YHG Company",
+            "loanAmount":"6,000",
+            "remainingAmount":"8,000",
             "dueDate":"21-03-2020",               
             "amounttobepaid":"1200",
             "d5thday":"Yet to Notified",
@@ -25,7 +44,13 @@
             "paymentstatus":"Overdue"              
           
         },
-        {
+        {   "loanId":"004",
+            "applicationDate":"22-01-2020",
+            "lender":"Validus",
+            "product":"Invoice Financing",
+            "companyName":"YHG Company",
+            "loanAmount":"15,000",
+            "remainingAmount":"10,000",
             "dueDate":"21-03-2020",               
             "amounttobepaid":"1200",
             "d5thday":"Yet to Notified",
@@ -34,6 +59,13 @@
           
         },
         {
+            "loanId":"002",
+            "applicationDate":"22-01-2020",
+            "lender":"Validus",
+            "product":"Account Receivables",
+            "companyName":"YHG Company",
+            "loanAmount":"15,000",
+            "remainingAmount":"10,000",
             "dueDate":"21-03-2020",               
             "amounttobepaid":"1200",
             "d5thday":"Yet to Notified",

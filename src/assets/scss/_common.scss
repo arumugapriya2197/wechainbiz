@@ -204,22 +204,22 @@ input{
     justify-content: space-between;
 }
 
-.app-title-forms{
-    color:#5A5A5A;
-    font-size: 0.85rem;
-    font-family: "poppins",sans-serif;
-    span{
-        color: #0863c7;       
-        font-weight: 550;
-        font-size: 1rem;
-    }
-    .app-title{
-        font-size: 1rem;
-        font-weight: 550;
-        color:#5A5A5A;
-        font-family: "poppins",sans-serif;
-    }
-}
+// .app-title-forms{
+//     color:#5A5A5A;
+//     font-size: 0.85rem;
+//     font-family: "poppins",sans-serif;
+//     span{
+//         color: #0863c7;       
+//         font-weight: 550;
+//         font-size: 1rem;
+//     }
+//     .app-title{
+//         font-size: 1rem;
+//         font-weight: 550;
+//         color:#5A5A5A;
+//         font-family: "poppins",sans-serif;
+//     }
+// }
 
 
 .loandetails{
@@ -320,11 +320,11 @@ input{
 }
 
 .loan-app-title{
-    font-size: 1.25rem;
+   
     font-weight: 600;
     font-family: "poppins",sans-serif;
     color:#5A5A5A;
-    font-size:1.10rem;
+    font-size:1rem;
     span{
         color: $app-primary;
         font-size:1rem;
@@ -368,7 +368,7 @@ input{
         .active .add-border {
             background-color: #ffffff;
             border: 5px solid #ffffff;
-            /* border-right: 90px solid #ffffff; */
+            // border-right: 90px solid #ffffff;
             border-radius: 3px;
         }
 }
@@ -410,8 +410,8 @@ input{
 }
 .active .add-border{
     background-color: #ffffff;
-    border: 5px solid #ffffff;
-    border-right: 90px solid #ffffff;
+     border: 5px solid #ffffff;
+    //  border-right: 90px solid #ffffff;
     border-radius: 3px;
 }
 .loan-app-btn{
@@ -422,9 +422,6 @@ input{
     color: #ffffff;
     height:12px
   }
-
-
-
 .datum{
    
     position: absolute;
@@ -539,4 +536,31 @@ input{
 .documents-col{
     display: flex;
     flex-direction: column;
+}
+.dashboard-title{
+    color:#5A5A5A;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "poppins",sans-serif;
+    span{
+        color: #0863c7;       
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    
+}
+.dashboard-screen{
+    font-size: 0.80rem;
+    font-family: "poppins",sans-serif;
+    .sidebar-navigation {
+        background-color: #166ba4;
+        padding: 1.5rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 400;}
+        .active .add-border {
+            background-color: #ffffff;
+            border: 5px solid #ffffff;
+            /* border-right: 90px solid #ffffff; */
+            border-radius: 3px;
+        }
 }
