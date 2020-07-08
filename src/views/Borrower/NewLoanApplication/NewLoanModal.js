@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Modal,
   ModalHeader,
@@ -9,6 +9,7 @@ import {
   ModalFooter,
   Button,
 } from "reactstrap";
+import { LoanApplicationData } from "../../../APIService";
 import { useHistory } from "react-router";
 import FormField from "../../../components/FormField";
 
@@ -23,39 +24,57 @@ const NewLoanModal = (props) => {
       "Revolve Loan",
       "AB Financing",
     ],
-    description: {
-      "Invoice Finance":
-        "Invoice Financing is a way for buisness to borrow money against the amounts due from customers. Invoice financing helps buisness improve cash flow, Pay employees and suplliers, and reinvest in operations and grow earlier than they would if they had to wait until their customers paid their balances in full",
-      "Buisness OverDraft":
-        "Buisness OverDraft is a way for buisness to borrow money against the amounts due from customers.",
-      "Term Loans":
-        "Term Loans is a way for buisness to borrow money against the amounts due from customers. Invoice financing helps buisness improve cash flow, Pay employees and suplliers, and reinvest in operations and grow earlier than they would if they had to wait until their customers paid their balances in full",
-      "PO Financing":
-        "PO Financing is a way for buisness to borrow money against the amounts due from customers. Invoice financing helps buisness improve cash flow, Pay employees and suplliers, and reinvest in operations and grow earlier than they would if they had to wait until their customers paid their balances in full",
-      "Special Financing":
-        "Special Financing is a way for buisness to borrow money against the amounts due from customers. Invoice financing helps buisness improve cash flow, Pay employees and suplliers, and reinvest in operations and grow earlier than they would if they had to wait until their customers paid their balances in full",
-      "Revolve Loan":
-        "Revolve Loan is a way for buisness to borrow money against the amounts due from customers. Invoice financing helps buisness improve cash flow, Pay employees and suplliers, and reinvest in operations and grow earlier than they would if they had to wait until their customers paid their balances in full",
-      "AB Financing":
-        "AB Financing is a way for buisness to borrow money against the amounts due from customers. Invoice financing helps buisness improve cash flow, Pay employees and suplliers, and reinvest in operations and grow earlier than they would if they had to wait until their customers paid their balances in full",
-    },
-    selected_type: "",
+    description: "",
+    selectdetails: [],
+    selected_type: "Invoice Financing",
   });
+  useEffect(() => {
+    LoanApplicationData.newloanmodallist()
+      .then((res) => {
+        if (res.status == "200") {
+          setDetails({
+            ...details,
+            selectdetails: res.data,
+          });
+        } else {
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const history = useHistory();
 
   const loanDetails = () => {
+    localStorage.setItem("product", details.selected_type);
     history.push("/newloandetails");
   };
   const handleChange = (e) => {
-    let myval = e.target.value;
-    let val = Object.keys(details.description).filter((a) => {
-      return a == myval ? a : "";
-    });
-    let mydat = details.description[val[0]];
-    setDetails({
-      ...details,
-      selected_type: mydat,
-    });
+    // let myval = e.target.value;
+    // let val = Object.keys(details.description).filter((a) => {
+    //   return a == myval ? a : "";
+    // });
+    // let mydat = details.description[val[0]];
+    // setDetails({
+    //   ...details,
+    //   selected_type: mydat,
+    // });
+    let selectedId = e.target.options[e.target.selectedIndex].id;
+    let selectedProduct = e.target.value;
+    LoanApplicationData.selectProductById(selectedId)
+      .then((res) => {
+        if (res.status == "200") {
+          setDetails({
+            ...details,
+            selected_type: selectedProduct,
+            description: res.data.description,
+          });
+        } else {
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -76,18 +95,22 @@ const NewLoanModal = (props) => {
             onChange={handleChange}
           >
             <option>Select</option>
-            {details.data.map((each) => {
-              return <option value={each}>{each}</option>;
+            {details.selectdetails.map((each) => {
+              return (
+                <option id={each.id} value={each.product}>
+                  {each.product}
+                </option>
+              );
             })}
           </FormField>
         </FormGroup>
         <FormGroup className="font-label new-loan-text-area">
-          <Label className="font-label">Invoice Financing </Label>
+          <Label className="font-label">{details.selected_type} </Label>
 
           <Input
             type="textarea"
             className="text-area"
-            value={details.selected_type}
+            value={details.description}
           />
         </FormGroup>
       </ModalBody>

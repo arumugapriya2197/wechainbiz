@@ -48,9 +48,11 @@ const BorrowerLogin = (props) => {
       BorrowerService.login(values)
         .then((res) => {
           console.log(res);
-          if (res.success === 1) {
+          if (res.status == "200") {
+            Swal.fire("Logged In Successfully!", res.data, "success");
             localStorage.setItem("token", res.token);
-            history.push("/new-loan");
+            history.push("/complete-registration");
+            setSubmitting(false);
             dispatch({
               type: SET_USER_DETAILS,
               payload: res.data,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PageHeader from "../../../layout/PageHeader";
 import {
   Container,
@@ -21,7 +21,7 @@ import { EnquiryService } from "../../../APIService";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router";
 
-const Enquiries = () => {
+const Enquiries = (route) => {
   const validationSchema = yup.object({
     first_name: yup.string().required("First Name is a required field"),
     last_name: yup.string().required("Last Name is a required field"),
@@ -41,7 +41,27 @@ const Enquiries = () => {
     discription: yup.string().required("Discription is a required field"),
   });
   const history = useHistory();
-
+  const [enquiryData, setEnquiryData] = useState({});
+  useEffect(() => {
+    let currentId = route.match.params.id;
+    if (currentId) {
+      EnquiryService.enquireById(currentId)
+        .then((res) => {
+          console.log({ res });
+          if (res.success === 1) {
+            // Swal.fire("Enquiry added Successfully!", res.data, "success");
+            // history.push("/directors-information");
+            // resetForm();
+            setEnquiryData({ ...res.data });
+          } else {
+            Swal.fire("Error", res.message, "error");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
   const {
     errors,
     touched,
@@ -68,8 +88,13 @@ const Enquiries = () => {
       EnquiryService.create(values)
         .then((res) => {
           console.log({ res });
-          Swal.fire("Done!", res.message, "success");
-          resetForm();
+          if (res.success === 1) {
+            Swal.fire("Enquiry added Successfully!", res.data, "success");
+            history.push("/directors-information");
+            resetForm();
+          } else {
+            Swal.fire("Error", res.message, "error");
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -117,30 +142,38 @@ const Enquiries = () => {
                 <FormField
                   label="Directors First Name"
                   {...fieldProps("first_name")}
+                  value={enquiryData && enquiryData.first_name}
                 />
               </Col>
               <Col sm={4}>
                 <FormField
                   label="Directors Last Name"
                   {...fieldProps("last_name")}
+                  value={enquiryData && enquiryData.last_name}
                 />
               </Col>
               <Col sm={4}>
                 <FormField
                   label="Company Name"
                   {...fieldProps("company_name")}
+                  value={enquiryData && enquiryData.company_name}
                 />
               </Col>
             </Row>
             <Row>
               <Col sm={4}>
-                <FormField label="UEN Number" {...fieldProps("uen_number")} />
+                <FormField
+                  label="UEN Number"
+                  {...fieldProps("uen_number")}
+                  value={enquiryData && enquiryData.uen_number}
+                />
               </Col>
               <Col sm={4}>
                 <FormField
                   label="Industry-ISIC code"
                   type="select"
                   {...fieldProps("ifsc_code")}
+                  value={enquiryData && enquiryData.ifsc_code}
                 >
                   <option>Select</option>
                   <option value="321565">321565</option>
@@ -151,6 +184,7 @@ const Enquiries = () => {
                   label="Number of Employees"
                   type="select"
                   {...fieldProps("no_of_employess")}
+                  value={enquiryData && enquiryData.no_of_employess}
                 >
                   <option>Select</option>
                   <option value="400">400</option>
@@ -163,6 +197,7 @@ const Enquiries = () => {
                   label="Annual Turnover"
                   type="select"
                   {...fieldProps("annual_tunover")}
+                  value={enquiryData && enquiryData.annual_tunover}
                 >
                   <option>Select</option>
                   <option value="25,00,000">25,00,000</option>
@@ -179,6 +214,7 @@ const Enquiries = () => {
                   type="email"
                   placeholder="Enter Email Address"
                   {...fieldProps("email")}
+                  value={enquiryData && enquiryData.email}
                 />
               </Col>
               <Col sm={4}>
@@ -196,6 +232,7 @@ const Enquiries = () => {
                     <Input
                       placeholder="Phone Number"
                       {...getFieldProps("mobile_no")}
+                      value={enquiryData && enquiryData.mobile_no}
                       invalid={Boolean(errors.mobile_no && touched.mobile_no)}
                     />
                   </InputGroup>
@@ -216,6 +253,7 @@ const Enquiries = () => {
                   label="Enquiry Title"
                   placeholder="Enter Title"
                   {...fieldProps("enquiry_title")}
+                  value={enquiryData && enquiryData.enquiry_title}
                 />
               </Col>
             </Row>
@@ -227,6 +265,7 @@ const Enquiries = () => {
                   rows={6}
                   placeholder="Enter Description "
                   {...fieldProps("discription")}
+                  value={enquiryData && enquiryData.discription}
                 />
               </Col>
             </Row>

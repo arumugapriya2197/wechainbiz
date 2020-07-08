@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PageHeader from "../../../layout/PageHeader";
 import {
   Container,
@@ -18,11 +18,12 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import useFocusError from "../../../utils/useFocusError";
 import FormField from "../../../components/FormField";
-import { LoanApplicationService } from "../../../APIService";
+import { LoanApplicationData } from "../../../APIService";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router";
+import { connect } from "react-redux";
 
-const LoanDetails = () => {
+const LoanDetails = ({ userDetails }) => {
   const validationSchema = yup.object({
     uen_number: yup.string().required("Uen Number is a required field"),
     company_name: yup.string().required("Company Name is a required field"),
@@ -93,43 +94,45 @@ const LoanDetails = () => {
     isValidating,
   } = useFormik({
     initialValues: {
-      uen_number: "234567",
-      company_name: "ABC finance",
-      number_of_employees: "20",
-      business_type: "finance",
-      product: "invoice",
-      preffered_terror: "yes",
-      expected_loan_amount: "200000",
-      collaterals: "yes",
-      industry_type: "finance",
-      avg_monthly_balance: "30000",
-      business_characteristics: "jhwddjhwf",
-      directors_anual_income: "2000000",
-      year: "2019",
-      revenue: "3000",
-      profit: "20000",
-      financier: "xyz",
-      faculty_type: "owner",
-      amount_limit: "20",
-      outstanding_amount: "200",
-      monthly_installment: "400",
-      terror: "true",
-      start_date: "20-01-2019",
-      end_date: "20-01-2020",
-      security: "yes",
-      latest_security_value: "40000",
-      customer_type: "working",
-      incorporation_date: "20-07-2019",
-      lender_wishlist: "yes",
-      how_you_heard_this: "social",
+      uen_number: userDetails ? userDetails.uen_no : "",
+      company_name: "",
+      number_of_employees: userDetails ? userDetails.number_of_employees : "",
+      business_type: "",
+      product: "",
+      preffered_terror: "",
+      expected_loan_amount: "",
+      collaterals: "",
+      industry_type: "",
+      avg_monthly_balance: "",
+      business_characteristics: "",
+      directors_anual_income: "",
+      year: "",
+      revenue: "",
+      profit: "",
+      financier: "",
+      faculty_type: "",
+      amount_limit: "",
+      outstanding_amount: "",
+      monthly_installment: "",
+      terror: "",
+      start_date: "",
+      end_date: "",
+      security: "",
+      latest_security_value: "",
+      customer_type: "",
+      incorporation_date: "",
+      lender_wishlist: "",
+      how_you_heard_this: "",
     },
     onSubmit: (values, { resetForm }) => {
-      history.push("/new-loan");
-      LoanApplicationService.applyloan(values)
+      LoanApplicationData.applyloan(values)
         .then((res) => {
           console.log({ res });
-          Swal.fire("Done!", res.message, "success");
-          resetForm();
+          if (res.success === 1) {
+            resetForm();
+            history.push("/new-loan");
+          } else {
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -164,7 +167,10 @@ const LoanDetails = () => {
               <i className="fas fa-long-arrow-alt-left mr-2"></i>Back
             </Button>
             <h6 className="app-title m-0">
-              <span>New Loan Application</span> - Invoice Financing
+              <span>New Loan Application</span> -{" "}
+              {localStorage.getItem("product")
+                ? localStorage.getItem("product")
+                : "Invoice Financing"}
             </h6>
           </div>
           <Form
@@ -186,7 +192,11 @@ const LoanDetails = () => {
                 />
               </Col>
               <Col sm={4}>
-                <FormField label="Name" {...fieldProps("name")} />
+                <FormField
+                  label="Name"
+                  // {...fieldProps("name")}
+                  value={userDetails ? userDetails.first_name : ""}
+                />
               </Col>
             </Row>
             <Row>
@@ -402,6 +412,7 @@ const LoanDetails = () => {
                   {...fieldProps("customer_type")}
                 >
                   <option>Select</option>
+                  <option>Finance</option>
                 </FormField>
               </Col>
               <Col sm={4}>
@@ -419,6 +430,8 @@ const LoanDetails = () => {
                   {...fieldProps("lender_wishlist")}
                 >
                   <option>Select</option>
+                  <option>yes</option>
+                  <option>No</option>
                 </FormField>
               </Col>
               <Col sm={4}>
@@ -428,6 +441,7 @@ const LoanDetails = () => {
                   {...fieldProps("how_you_heard_this")}
                 >
                   <option>Select</option>
+                  <option>social</option>
                 </FormField>
               </Col>
             </Row>
@@ -460,5 +474,8 @@ const LoanDetails = () => {
     </React.Fragment>
   );
 };
+const mapStateToProps = ({ Application }) => ({
+  userDetails: Application.userDetails,
+});
 
-export default LoanDetails;
+export default connect(mapStateToProps)(LoanDetails);

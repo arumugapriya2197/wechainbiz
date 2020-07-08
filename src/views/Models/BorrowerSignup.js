@@ -59,7 +59,6 @@ const BorrowerSignup = (props) => {
     onSubmit: (values, { resetForm }) => {
       BorrowerService.signup(values)
         .then((res) => {
-          console.log(res, values);
           resetForm();
 
           if (res.success === 1) {

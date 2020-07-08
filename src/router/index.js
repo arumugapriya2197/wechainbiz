@@ -111,6 +111,12 @@ const appRouter = [
     icon: "",
   },
   {
+    path: "/editenquiry/:id",
+    component: Enquiries,
+    name: "Home",
+    icon: "",
+  },
+  {
     path: "/admin/dashboard",
     component: AdminDashboard,
     name: "Home",
@@ -141,6 +147,7 @@ const appRouter = [
     name: "Home",
     icon: "",
   },
+
   {
     path: "/admin/assignlender",
     component: AssignLender,

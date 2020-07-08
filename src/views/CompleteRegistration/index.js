@@ -25,6 +25,7 @@ import {
   numberOfEmployees,
   annualTurnover,
 } from "../../constants/DefaultOptions";
+import { useHistory } from "react-router";
 
 const CompleteRegistration = () => {
   const validationSchema = yup.object({
@@ -34,6 +35,7 @@ const CompleteRegistration = () => {
     director_last_name: yup
       .string()
       .required("Director Last Name is a required field"),
+    company: yup.string().required("Company is a required field"),
     uen_number: yup.string().required("Uen Number is a required field"),
     industry_isic_code: yup
       .string()
@@ -68,6 +70,8 @@ const CompleteRegistration = () => {
       .url("Ener valid url address"),
   });
 
+  const history = useHistory();
+
   const {
     errors,
     touched,
@@ -81,25 +85,32 @@ const CompleteRegistration = () => {
     initialValues: {
       director_first_name: "",
       director_last_name: "",
+      company: "",
       uen_number: "",
       industry_isic_code: "",
       number_of_employees: "",
       annual_tun_over: "",
-      is_singapore_reg_company: "1",
-      load_shareholding: "1",
-      history: "1",
+      is_singapore_reg_company: "",
+      load_shareholding: "",
+      history: "",
       company_description: "",
       business_description: "",
       email: "",
       mobile_number: "",
       website: "",
+      contact_person: "Jhon",
     },
     onSubmit: (values, { resetForm }) => {
-      ProfileService.create(values).then((res) => {
-        console.log(res);
-        Swal.fire("Done!", res.message, "success");
-        resetForm();
-      });
+      ProfileService.create(values)
+        .then((res) => {
+          history.push("/enquiries");
+          console.log(res);
+          Swal.fire("Done!", res.message, "success");
+          resetForm();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     validationSchema,
   });
@@ -115,14 +126,17 @@ const CompleteRegistration = () => {
       isTouched,
     };
   };
+  const goBack = () => {
+    history.push("/new-loan");
+  };
 
   return (
     <React.Fragment>
       <PageHeader />
-      <section className="p-5 animate-fadeInUp">
+      <section className="pt-4  animate-fadeInUp loandetails">
         <Container fluid>
           <div className="d-flex align-items-center  mb-3">
-            <Button className="mr-2">
+            <Button className="mr-2 button-size" onClick={goBack}>
               <i className="fas fa-long-arrow-alt-left mr-2"></i>Back
             </Button>
             <h4 className="app-title m-0">
@@ -149,6 +163,9 @@ const CompleteRegistration = () => {
                   label="Directors Last Name"
                   {...fieldProps("director_last_name")}
                 />
+              </Col>
+              <Col sm={4}>
+                <FormField label="Company Name" {...fieldProps("company")} />
               </Col>
             </Row>
             <Row>
@@ -383,11 +400,15 @@ const CompleteRegistration = () => {
               </Col>
             </Row>
             <div className="text-right">
-              <Button color="danger" className="mr-3" type="reset">
-                cancel <i className="fas fa-times-circle ml-2"></i>
+              <Button color="danger button-size" className="mr-3" type="reset">
+                Cancel <i className="fas fa-times-circle ml-2"></i>
               </Button>
-              <Button color="success" type="submit">
-                save <i className="far fa-save ml-2"></i>
+              <Button
+                color="success button-size"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                Submit <i className="fas fa-arrow-right ml-2"></i>
               </Button>
             </div>
           </Form>

@@ -15,7 +15,10 @@ import SidebarNavigation from "../../../layout/SidebarNavigation";
 import NewLoanModal from "./NewLoanModal";
 import { useTable } from "react-table";
 import moment from "moment";
-import { LoanApplicationService } from "../../../APIService";
+import {
+  LoanApplicationService,
+  LoanApplicationData,
+} from "../../../APIService";
 import { loandata } from "./data.json";
 import editIcon from "../../../assets/svg/edit.png";
 import loanapplied from "../../../assets/png/1_loan_applied.png";
@@ -32,11 +35,19 @@ import { useHistory } from "react-router";
 
 const NewLoanApplication = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [loanTableDetails, setloanTableDetails] = useState({ loanlist: [] });
 
   useEffect(() => {
-    LoanApplicationService.list().then((res) => {
-      console.log(res);
-    });
+    LoanApplicationData.loanapplicationlist()
+      .then((res) => {
+        console.log(res);
+        if (localStorage.getItem("product")) {
+          setloanTableDetails({ loanlist: res.data });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   const history = useHistory();
 
@@ -44,11 +55,11 @@ const NewLoanApplication = () => {
     () => [
       {
         Header: "Loan ID",
-        accessor: "loanId",
+        accessor: "id",
       },
       {
         Header: "Application Date",
-        accessor: "applicationDate",
+        accessor: "create_date",
         Cell: ({ value }) => {
           return moment(value).format("DD/MM/YYYY");
         },
@@ -59,19 +70,19 @@ const NewLoanApplication = () => {
       },
       {
         Header: "Lender Name",
-        accessor: "lenderName",
+        accessor: "financier",
       },
       {
         Header: "Loan Amount($)",
-        accessor: "loanAmount",
+        accessor: "expected_loan_amount",
       },
       {
         Header: "Loan Tenor",
-        accessor: "loanTenor",
+        accessor: "preffered_tennor",
       },
       {
         Header: "Pending Status",
-        accessor: "pendingStatus",
+        accessor: "pending_status",
       },
       {
         Header: "Status",
@@ -159,6 +170,7 @@ const NewLoanApplication = () => {
     columns,
     data,
   });
+
   return (
     <React.Fragment>
       <section className="container datum">
@@ -255,18 +267,26 @@ const NewLoanApplication = () => {
                         </tr>
                       );
                     })}
-                    {loandata.length === 0 ? (
+                    {loanTableDetails.loanlist.length === 0 ? (
                       <tr>
                         <td colSpan="9">
                           <div className="no-data">No Records Found</div>
                         </td>
                       </tr>
                     ) : (
-                      loandata.map((each) => {
+                      loanTableDetails.loanlist.map((each) => {
                         return (
                           <tr>
-                            {Object.values(each).map((data) => {
-                              return <td>{data}</td>;
+                            {Object.values(each).map((data, id) => {
+                              return (
+                                <td>
+                                  {id === 0
+                                    ? "L001"
+                                    : id === 1
+                                    ? moment(data).format("DD-MM-YYYY")
+                                    : data}
+                                </td>
+                              );
                             })}
                             <td>
                               <Row>

@@ -8,7 +8,7 @@ const getOptions = (datatype = null) => {
     options = {
       ...options,
       headers: {
-        authorization: token,
+        Authorization: `Bearer ${token}`,
         "Content-Type": datatype,
       },
     };
@@ -29,6 +29,7 @@ const request = {
     http.put(`${API_ROOT}${url}`, data, getOptions()).then(respose),
   delete: (url) => http.delete(`${API_ROOT}${url}`, getOptions()).then(respose),
 };
+const Required = {};
 
 const BorrowerService = {
   login: (data) => request.post("/borrower/login", data),
@@ -38,6 +39,15 @@ const BorrowerService = {
 
 const EnquiryService = {
   create: (data) => request.post("/enquiry", data),
+  enquirelist: () => request.get("/enquiry"),
+  enquireById: (id) => request.get(`/enquiry/${id}`),
+};
+
+const LoanApplicationData = {
+  newloanmodallist: () => request.get("/selectProduct"),
+  selectProductById: (id) => request.get(`/selectProduct/${id}`),
+  applyloan: (data) => request.post("/loanApplication", data),
+  loanapplicationlist: () => request.get("/loanApplication/loan"),
 };
 
 const ProfileService = {
@@ -56,4 +66,5 @@ export {
   EnquiryService,
   ProfileService,
   LoanApplicationService,
+  LoanApplicationData,
 };
