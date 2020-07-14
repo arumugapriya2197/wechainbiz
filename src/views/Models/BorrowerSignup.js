@@ -93,7 +93,7 @@ const BorrowerSignup = (props) => {
       centered
       size="lg"
     >
-      <ModalBody className="p-0">
+      <ModalBody {...props} className="p-0">
         <Row noGutters className="align-items-center">
           <Col sm={4}>
             <div className="banner">

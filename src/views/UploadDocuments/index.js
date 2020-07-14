@@ -24,7 +24,7 @@ import { useHistory } from "react-router";
 import { connect } from "react-redux";
 import { SET_TABLE_DETAILS } from "../../../constants";
 
-const LoanDetails = ({ userDetails, dispatch }) => {
+const UploadDocuments = ({ userDetails, dispatch }) => {
   const validationSchema = yup.object({
     uen_number: yup.string().required("Uen Number is a required field"),
     company_name: yup.string().required("Company Name is a required field"),
@@ -210,7 +210,7 @@ const LoanDetails = ({ userDetails, dispatch }) => {
               <Col sm={4}>
                 <FormField
                   label="Name"
-                  // {...fieldProps("name")}
+                  {...fieldProps("name")}
                   value={userDetails ? userDetails.first_name : ""}
                 />
               </Col>
@@ -223,10 +223,7 @@ const LoanDetails = ({ userDetails, dispatch }) => {
                   {...fieldProps("number_of_employees")}
                 >
                   <option>Select</option>
-                  <option value="0-50">0-50</option>
-                  <option value="51-250">51-250</option>
-                  <option value="251-500">251-500</option>
-                  <option value="500+">500+</option>
+                  <option value="400">400</option>
                 </FormField>
               </Col>
               <Col sm={4}>
@@ -251,12 +248,8 @@ const LoanDetails = ({ userDetails, dispatch }) => {
                   {...fieldProps("preffered_terror")}
                 >
                   <option>Select</option>
-                  <option value="30 days">30 days</option>
-                  <option value="60 days">60 days</option>
-                  <option value="90 days">90 days</option>
-                  <option value="1 year">1 year</option>
-                  <option value="2 year">2 year</option>
-                  <option value="5 year">5 year</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
                 </FormField>
               </Col>
               <Col sm={4}>
@@ -266,7 +259,7 @@ const LoanDetails = ({ userDetails, dispatch }) => {
                   {...fieldProps("expected_loan_amount")}
                 >
                   <option>Select</option>
-                  <option value="200000">200000</option>
+                  <option value="multi-national">200000</option>
                 </FormField>
               </Col>
               <Col sm={4}>
@@ -453,14 +446,8 @@ const LoanDetails = ({ userDetails, dispatch }) => {
                   {...fieldProps("lender_wishlist")}
                 >
                   <option>Select</option>
-                  <option value="Culum Capital">Culum Capital</option>
-                  <option value="Validus">Validus</option>
-                  <option value="Reachout Capital">Reachout Capital</option>
-                  <option value="Fund Tier">Fund Tier</option>
-                  <option value="Invoice Interchange">
-                    Invoice Interchange
-                  </option>
-                  <option value="Financing societies">Funding societies</option>
+                  <option>yes</option>
+                  <option>No</option>
                 </FormField>
               </Col>
               <Col sm={4}>
@@ -507,4 +494,4 @@ const mapStateToProps = ({ Application }) => ({
   userDetails: Application.userDetails,
 });
 
-export default connect(mapStateToProps)(LoanDetails);
+export default connect(mapStateToProps)(UploadDocuments);

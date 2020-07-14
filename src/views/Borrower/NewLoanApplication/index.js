@@ -32,12 +32,17 @@ import amount8 from "../../../assets/png/8_amount.png";
 import amount9 from "../../../assets/png/9_amount.png";
 import amount10 from "../../../assets/png/10_amount.png";
 import { useHistory } from "react-router";
+import { connect } from "react-redux";
 
-const NewLoanApplication = () => {
+const NewLoanApplication = ({ tableDetails }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [loanTableDetails, setloanTableDetails] = useState({ loanlist: [] });
 
+  console.log(loanTableDetails, tableDetails);
   useEffect(() => {
+    if (tableDetails) {
+      setloanTableDetails({ loanlist: tableDetails });
+    }
     LoanApplicationData.loanapplicationlist()
       .then((res) => {
         console.log(res);
@@ -267,13 +272,16 @@ const NewLoanApplication = () => {
                         </tr>
                       );
                     })}
-                    {loanTableDetails.loanlist.length === 0 ? (
+
+                    {loanTableDetails &&
+                    loanTableDetails.loanlist.length === 0 ? (
                       <tr>
                         <td colSpan="9">
                           <div className="no-data">No Records Found</div>
                         </td>
                       </tr>
                     ) : (
+                      loanTableDetails &&
                       loanTableDetails.loanlist.map((each) => {
                         return (
                           <tr>
@@ -328,5 +336,8 @@ const NewLoanApplication = () => {
     </React.Fragment>
   );
 };
+const mapStateToProps = ({ Application }) => ({
+  tableDetails: Application.tableDetails,
+});
 
-export default NewLoanApplication;
+export default connect(mapStateToProps)(NewLoanApplication);
